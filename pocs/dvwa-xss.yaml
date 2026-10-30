@@ -1,0 +1,24 @@
+# DVWA Reflected XSS (Low), native template v2.
+# Local authorized lab only: the mock target reflects name without escaping.
+id: dvwa-xss
+info:
+  name: DVWA Reflected XSS (Low)
+  author: xiangfuhua
+  severity: medium
+  description: >-
+    DVWA's reflected XSS module at low security inserts the name parameter into
+    the page without encoding. A match means the script payload survived
+    verbatim, proving the reflected sink is unescaped.
+  reference:
+    - https://github.com/digininja/DVWA
+  tags: dvwa,xss,lab
+method: GET
+path: /vulnerabilities/xss_r/
+payload:
+  name: "<script>alert(1)</script>"
+headers:
+  Cookie: "PHPSESSID=mock; security=low"
+matchers:
+  - type: word
+    words:
+      - "<script>alert(1)</script>"

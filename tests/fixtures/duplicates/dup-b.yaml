@@ -1,0 +1,13 @@
+id: dup-b
+info:
+  name: Duplicate demo B
+  author: xiangfuhua
+  severity: medium
+  description: Second copy of an endpoint check used by the duplicate rule tests.
+  reference: https://example.com/advisory
+  tags: demo,http
+method: GET
+path: /same
+matchers:
+  - type: word
+    words: ["unique-marker"]

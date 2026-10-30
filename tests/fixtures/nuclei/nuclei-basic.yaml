@@ -1,0 +1,17 @@
+id: nuclei-basic
+info:
+  name: Nuclei basic demo
+  author: xiangfuhua
+  severity: medium
+  description: A Nuclei-style template with a content matcher.
+  reference:
+    - https://example.com/advisory
+  tags: demo,http
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/demo"
+    matchers:
+      - type: word
+        words:
+          - "unique-marker"

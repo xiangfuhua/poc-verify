@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="893" height="890" viewBox="0 0 893 890" role="img" aria-label="pocverify terminal demo">
+  <title>pocverify — lint, gate, run, report</title>
+  <rect width="893" height="890" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <path d="M0 12a12 12 0 0 1 12-12h869a12 12 0 0 1 12 12v32H0z" fill="#161b22"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="88" y="27" fill="#c9d1d9" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="bold">pocverify — lint → gate → run → report</text>
+  <text x="871" y="27" fill="#8b949e" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" font-size="12" text-anchor="end">actual CLI output · v2.0.0</text>
+  <g font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" font-size="14">
+  <text x="26" y="82" fill="#79c0ff" font-weight="bold" xml:space="preserve">$ pocverify lint examples/nuclei</text>
+  <text x="26" y="103" fill="#58a6ff" font-weight="bold" xml:space="preserve">pocverify 2.0.0 · 3 template(s) · 6 rules</text>
+  <text x="26" y="124" fill="#c9d1d9" font-weight="normal" xml:space="preserve">examples/nuclei/code-probe.yaml  (score 65/100)</text>
+  <text x="26" y="145" fill="#ff7b72" font-weight="normal" xml:space="preserve">  L14   critical PG-003  template uses the &#x27;code&#x27; protocol, which executes logic on the scanner</text>
+  <text x="26" y="166" fill="#8b949e" font-weight="normal" xml:space="preserve">                         hint: remove it, or waive PG-003 explicitly after reviewing the code path</text>
+  <text x="26" y="187" fill="#ff7b72" font-weight="normal" xml:space="preserve">  L1    high     PG-005  template defines no request, so it can never produce evidence</text>
+  <text x="26" y="208" fill="#c9d1d9" font-weight="normal" xml:space="preserve">examples/nuclei/cve-2024-0001-copy.yaml  (score 90/100)</text>
+  <text x="26" y="229" fill="#ff7b72" font-weight="normal" xml:space="preserve">  L21   high     PG-005  status-only matcher accepts every 200 response; this is a false positive</text>
+  <text x="26" y="250" fill="#c9d1d9" font-weight="normal" xml:space="preserve">                         generator</text>
+  <text x="26" y="271" fill="#8b949e" font-weight="normal" xml:space="preserve">                         hint: require a body marker that only the vulnerable endpoint returns</text>
+  <text x="26" y="292" fill="#c9d1d9" font-weight="normal" xml:space="preserve">examples/nuclei/cve-2024-0001.yaml  (score 79/100)</text>
+  <text x="26" y="313" fill="#ff7b72" font-weight="normal" xml:space="preserve">  L4    high     PG-006  duplicate of examples/nuclei/cve-2024-0001-copy.yaml: identical request</text>
+  <text x="26" y="334" fill="#c9d1d9" font-weight="normal" xml:space="preserve">                         and matcher fingerprint</text>
+  <text x="26" y="355" fill="#8b949e" font-weight="normal" xml:space="preserve">                         hint: delete one of the copies; duplicates double request volume and</text>
+  <text x="26" y="376" fill="#c9d1d9" font-weight="normal" xml:space="preserve">                           alerts</text>
+  <text x="26" y="397" fill="#ff7b72" font-weight="normal" xml:space="preserve">  L20   high     PG-005  status-only matcher accepts every 200 response; this is a false positive</text>
+  <text x="26" y="418" fill="#c9d1d9" font-weight="normal" xml:space="preserve">                         generator</text>
+  <text x="26" y="439" fill="#8b949e" font-weight="normal" xml:space="preserve">                         hint: require a body marker that only the vulnerable endpoint returns</text>
+  <text x="26" y="460" fill="#79c0ff" font-weight="normal" xml:space="preserve">  L4    low      PG-006  CVE-2024-0001 is covered by 2 templates in this scan</text>
+  <text x="26" y="481" fill="#8b949e" font-weight="normal" xml:space="preserve">                         hint: consolidate on the template with the strongest matcher</text>
+  <text x="26" y="502" fill="#79c0ff" font-weight="normal" xml:space="preserve">Score: 65/100 (worst template; average 78) · 1 critical, 4 high, 1 low · fail-on high</text>
+  <text x="26" y="523" fill="#f85149" font-weight="bold" xml:space="preserve">gate failed: 5 finding(s) at or above high</text>
+  <text x="26" y="544" fill="#c9d1d9" font-weight="normal" xml:space="preserve"></text>
+  <text x="26" y="565" fill="#79c0ff" font-weight="bold" xml:space="preserve">$ pocverify run pocs --target http://127.0.0.1:8080</text>
+  <text x="26" y="586" fill="#c9d1d9" font-weight="bold" xml:space="preserve">Lint: 3 template(s) · score 100/100 · no findings · fail-on high</text>
+  <text x="26" y="607" fill="#c9d1d9" font-weight="bold" xml:space="preserve">Target: http://127.0.0.1:8080</text>
+  <text x="26" y="628" fill="#c9d1d9" font-weight="bold" xml:space="preserve">Gate: 3 approved, 0 blocked</text>
+  <text x="26" y="649" fill="#3fb950" font-weight="bold" xml:space="preserve">PASS  DVWA File Inclusion (Low)  HTTP 200  65 ms  [regex]  root:x:0:0</text>
+  <text x="26" y="670" fill="#3fb950" font-weight="bold" xml:space="preserve">PASS  DVWA SQL Injection (Low)  HTTP 200  45 ms  [word]  &lt;pre&gt;ID: 1&#x27; OR &#x27;1&#x27;=&#x27;1&lt;/pre&gt;</text>
+  <text x="26" y="691" fill="#3fb950" font-weight="bold" xml:space="preserve">PASS  DVWA Reflected XSS (Low)  HTTP 200  67 ms  [word]  &lt;pre&gt;Hello &lt;script&gt;alert(1)&lt;/script&gt;&lt;/pre&gt;</text>
+  <text x="26" y="712" fill="#8b949e" font-weight="normal" xml:space="preserve">Done in 0.2s · 3 PASS</text>
+  <text x="26" y="733" fill="#c9d1d9" font-weight="normal" xml:space="preserve"></text>
+  <text x="26" y="754" fill="#79c0ff" font-weight="bold" xml:space="preserve">$ pocverify run examples/demo-unsafe.yaml --target http://127.0.0.1:8080</text>
+  <text x="26" y="775" fill="#ff7b72" font-weight="normal" xml:space="preserve">Lint: 1 template(s) · score 70/100 · 3 high · fail-on high</text>
+  <text x="26" y="796" fill="#c9d1d9" font-weight="bold" xml:space="preserve">Target: http://127.0.0.1:8080</text>
+  <text x="26" y="817" fill="#c9d1d9" font-weight="bold" xml:space="preserve">Gate: 0 approved, 1 blocked</text>
+  <text x="26" y="838" fill="#f85149" font-weight="bold" xml:space="preserve">  BLOCKED examples/demo-unsafe.yaml — PG-004 high, PG-003 high, PG-005 high</text>
+  <text x="26" y="859" fill="#f85149" font-weight="bold" xml:space="preserve">Done in 0.0s · 1 BLOCKED</text>
+  </g>
+</svg>

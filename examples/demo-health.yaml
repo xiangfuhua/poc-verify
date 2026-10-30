@@ -1,0 +1,21 @@
+# A well-formed native template. It passes lint with a score of 100 and is the
+# one used for the happy-path demo against mock/dvwa_mock.py.
+id: demo-health
+info:
+  name: Demo health endpoint
+  author: xiangfuhua
+  severity: low
+  description: >-
+    Checks that the local lab target is up and returns its documented JSON
+    status marker. Included as the positive example for the documentation.
+  reference:
+    - https://example.com/lab-documentation
+  tags: demo,http
+method: GET
+path: /health
+matchers:
+  - type: status
+    status: [200]
+  - type: regex
+    regex:
+      - '"status"\s*:\s*"ok"'

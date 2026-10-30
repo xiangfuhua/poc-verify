@@ -1,0 +1,13 @@
+id: status-only
+info:
+  name: Status only demo
+  author: xiangfuhua
+  severity: medium
+  description: Detects an admin panel but only checks the status code.
+  reference: https://example.com/advisory
+  tags: demo,http
+method: GET
+path: /admin
+matchers:
+  - type: status
+    status: [200]

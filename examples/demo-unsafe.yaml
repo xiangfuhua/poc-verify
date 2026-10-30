@@ -1,0 +1,22 @@
+# A deliberately unsafe template used by the demo. It is never executed by the
+# linter; the point is that the gate refuses to run it.
+id: demo-unsafe
+info:
+  name: Demo unsafe template
+  author: xiangfuhua
+  severity: critical
+  description: >-
+    Intentionally bad template used to demonstrate PG-003, PG-004 and PG-005.
+    The payload would destroy data and the header would split the request.
+  reference:
+    - https://example.com/this-is-not-a-real-advisory
+  tags: demo,unsafe
+method: GET
+path: /login
+payload:
+  q: "'; DROP TABLE users; --"
+headers:
+  X-Debug: "1\r\nX-Injected: yes"
+matchers:
+  - type: status
+    status: [200]

@@ -1,0 +1,9 @@
+# A v1 flat template: no id/info, legacy match_* fields. Used to prove that the
+# loader still accepts it and normalizes it into the shared model.
+name: Legacy SQL injection
+method: GET
+path: /vulnerabilities/sqli/
+payload:
+  id: "1' OR '1'='1"
+match_status: 200
+match_keyword: "ID: 1"

@@ -1,0 +1,13 @@
+id: dup-c
+info:
+  name: Duplicate demo C
+  author: xiangfuhua
+  severity: medium
+  description: Same endpoint as A and B but with a different matcher, so medium.
+  reference: https://example.com/advisory
+  tags: demo,http
+method: GET
+path: /same
+matchers:
+  - type: word
+    words: ["other-marker"]

@@ -1,0 +1,27 @@
+# Example project configuration. Copy it to the repository root as
+# `.pocverify.yaml` to make it the default for every command.
+#
+# A waiver is a reviewed decision, so `reason` is mandatory and is surfaced in
+# every report. Entries that stop matching are reported as unused.
+version: 1
+
+ignore:
+  - rule: PG-005
+    file: "pocs/legacy/*.yaml"
+    reason: "legacy status-only checks, tracked in issue #12"
+
+lint:
+  # Exit non-zero when a finding at or above this severity is not waived.
+  fail-on: high
+  # Exit non-zero when any single template scores below this.
+  fail-under: 80
+  # Treat unused waivers as failures too (recommended in CI).
+  strict-waivers: false
+
+gate:
+  # Refuse to run a template with a non-waived finding at or above this.
+  block-on: high
+
+run:
+  # Equivalent to always passing --allow-unsafe. Do not enable by default.
+  allow-unsafe: false

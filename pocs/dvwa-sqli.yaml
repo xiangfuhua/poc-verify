@@ -1,0 +1,25 @@
+# DVWA SQL Injection (Low), native template v2.
+# Local authorized lab only: the mock target echoes the id parameter verbatim.
+id: dvwa-sqli
+info:
+  name: DVWA SQL Injection (Low)
+  author: xiangfuhua
+  severity: high
+  description: >-
+    DVWA's SQL Injection module at low security concatenates the id parameter
+    into a query and echoes the result. A match means the injected expression
+    was executed by the database rather than escaped.
+  reference:
+    - https://github.com/digininja/DVWA
+  tags: dvwa,sqli,lab
+method: GET
+path: /vulnerabilities/sqli/
+payload:
+  id: "1' OR '1'='1"
+  Submit: Submit
+headers:
+  Cookie: "PHPSESSID=mock; security=low"
+matchers:
+  - type: word
+    words:
+      - "ID: 1' OR '1'='1"

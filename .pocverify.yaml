@@ -1,0 +1,14 @@
+# Default project configuration for this repository.
+# Copy it to another repository and adjust the paths; every `ignore` entry needs
+# a reason, and entries that stop matching are reported.
+version: 1
+
+lint:
+  fail-on: high
+  strict-waivers: false
+
+gate:
+  block-on: high
+
+run:
+  allow-unsafe: false

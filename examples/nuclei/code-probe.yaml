@@ -1,0 +1,19 @@
+# A template with a `code:` block. It is inert here, but the capability exists,
+# so PG-003 rates it critical and the gate refuses to run it.
+id: code-probe
+info:
+  name: Demo code protocol
+  author: xiangfuhua
+  severity: critical
+  description: >-
+    Demonstrates a template that would execute logic on the scanning host. The
+    command only prints text, but the capability itself is the risk.
+  reference:
+    - https://example.com/advisory/code-protocol
+  tags: demo,code
+code:
+  - engine:
+      - sh
+      - -c
+    args:
+      - echo pocverify-demo
